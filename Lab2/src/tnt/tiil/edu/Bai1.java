@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ntt.tiil.edu;
+package tnt.tiil.edu;
 
 import java.util.Scanner;
 
