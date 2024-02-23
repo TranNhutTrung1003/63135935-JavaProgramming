@@ -16,7 +16,7 @@ public class Bai2 {
 	 * @param args
 	 */
 	
-	public ArrayList<String> nhap(){
+	public static ArrayList<String> nhap(){
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<String> ds = new ArrayList<String>();
 		String n;
@@ -36,7 +36,7 @@ public class Bai2 {
 		return ds;
 	}
 	
-	public void xuat(ArrayList<String> ds) {
+	public static void xuat(ArrayList<String> ds) {
 		// xuat danh sach
 		System.out.println("\ndanh sach ho va ten vua nhap: ");
 		for (String i: ds) {
@@ -44,7 +44,7 @@ public class Bai2 {
 		}
 	}
 	
-	public void sapxep(ArrayList<String> ds) {
+	public static void sapxep(ArrayList<String> ds) {
 		// sap xep giam dan va xuat danh sach
 		ds.sort(Collections.reverseOrder());
 		
@@ -54,7 +54,7 @@ public class Bai2 {
 		}
 	}
 	
-	public void ngaunhien(ArrayList<String> ds) {
+	public static void ngaunhien(ArrayList<String> ds) {
 		// xuat danh sach ngau nhien
 		Collections.shuffle(ds); // Lenh xao tron phan tu trong danh sach
 		System.out.println("\ndanh sach ho va ten ngau nhien: ");
@@ -63,7 +63,7 @@ public class Bai2 {
 		}
 	}
 	
-	public void xoa(ArrayList<String> ds, String n) {
+	public static void xoa(ArrayList<String> ds, String n) {
 		int count = 0;
 		
 		for (String i:ds) {
@@ -76,10 +76,11 @@ public class Bai2 {
 		ds.remove(count);
 	}
 	
-	public void menu() {
+	public static void menu() {
 		ArrayList<String> ds = new ArrayList<String>();
 		Scanner scanner = new Scanner(System.in);
 		int b;
+		String s, chossen;
 		
 		while(true) {
 			System.out.println("1. Nhap danh sach ho va ten");
@@ -89,25 +90,42 @@ public class Bai2 {
 			System.out.println("5. Tim va xoa ho ten nhap tu ban phim");
 			System.out.println("6. ket thuc");
 			
-			System.out.print("nhap vao lua chon");
+			System.out.print("nhap vao lua chon: ");
 			b = scanner.nextInt();
 			switch(b) {
 			case 1:
 				ds = nhap();
 				break;
 			case 2:
-				xuat();
+				xuat(ds);
 				break;
 			case 3:
-				
+				ngaunhien(ds);
+				break;
+			case 4:
+				sapxep(ds);
+				break;
+			case 5:
+				System.out.print("nhap vao ho va ten can xoa: ");
+				scanner.nextLine();
+				s = scanner.nextLine();
+				xoa(ds, s);
+				break;
+			default:
+				break;
 			}
-
+			
+			System.out.print("ban co muon tiep tuc khong(Y/N): ");
+			scanner.nextLine();
+			chossen = scanner.nextLine();
+			if(chossen.equals("N"))
+				break;
 		}
 	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		menu();
 		
 	}
 
