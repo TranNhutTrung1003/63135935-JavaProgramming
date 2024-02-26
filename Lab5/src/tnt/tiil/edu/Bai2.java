@@ -16,9 +16,8 @@ public class Bai2 {
 	 * @param args
 	 */
 	
-	public static ArrayList<String> nhap(){
-		Scanner scanner = new Scanner(System.in);
-		ArrayList<String> ds = new ArrayList<String>();
+	public static ArrayList<String> nhap(Scanner scanner){
+		ArrayList<String> ds = new ArrayList<>();
 		String n;
 		
 		// nhap danh sach ho va ten
@@ -77,7 +76,7 @@ public class Bai2 {
 	}
 	
 	public static void menu() {
-		ArrayList<String> ds = new ArrayList<String>();
+		ArrayList<String> ds = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in);
 		int b;
 		String s, chossen;
@@ -94,7 +93,7 @@ public class Bai2 {
 			b = scanner.nextInt();
 			switch(b) {
 			case 1:
-				ds = nhap();
+				ds = nhap(scanner);
 				break;
 			case 2:
 				xuat(ds);
@@ -121,6 +120,8 @@ public class Bai2 {
 			if(chossen.equals("N"))
 				break;
 		}
+		
+		scanner.close();
 	}
 	
 	public static void main(String[] args) {
